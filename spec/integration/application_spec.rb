@@ -15,6 +15,14 @@ RSpec.describe Application do
     reset_albums_table
   end
   let(:app) { Application.new }
+  context "GET /" do 
+    it "returns home page with hrefs to albums and artists" do
+      response = get("/")
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>Welcome to my Music Databsase</h1>")
+    end 
+  end 
 
   context "GET /albums" do 
     it "returns all albums" do 
