@@ -12,6 +12,7 @@ class DatabaseConnection
   # the database name given in argument.
 
 def self.connect
+
   # If the environment variable (set by Heroku)
   # is present, use this to open the connection.
   if ENV['DATABASE_URL'] != nil
@@ -25,4 +26,5 @@ def self.connect
     database_name = 'music_library'
   end
   @connection = PG.connect({ host: '127.0.0.1', dbname: database_name })
+  end 
 end
